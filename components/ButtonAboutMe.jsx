@@ -8,6 +8,14 @@ const style = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#0C6DED',
+        borderRadius: 100,
+        padding: 5,
+        marginTop: 5
+    },
+    TextView:{
+     color: 'white',
+     
     }
 })
 
@@ -17,7 +25,7 @@ export default ButtonAboutMe = (props) => {
             
             
             <Pressable>
-<Link href={'./jogos'}>
+            <Link href={`${props.link}`}>
             <Text style = {style.TextView}>
              {props.button}
             </Text>

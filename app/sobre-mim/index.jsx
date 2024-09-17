@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, Pressable, Image } from "react-native
 import { Link } from "expo-router"
 import Navbar from "../../components/Navbar";
 import ButtonAboutMe from "../../components/ButtonAboutMe";
+import GamesAboutMe from "../../components/Games-movies-AboutMe";
 
 const style = StyleSheet.create({
     picture: {
@@ -36,7 +37,9 @@ export default Sobremim = () => {
             </View>
             <View style={style.ViewDescription}>
                 <Text style={style.description}>Olá, Seja bem vindo(a). Esse é meu site pessoal para falar dos meus gostos pessoais!</Text>
-                <ButtonAboutMe button = "Veja os meu jogos preferidos" />
+                <ButtonAboutMe button = "Veja os meus jogos preferidos" link = './jogos'/>
+                <ButtonAboutMe button = "Veja meus filmes preferidos" link = './filmes' />
+                
             </View>
         </View>
     )

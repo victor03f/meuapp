@@ -11,7 +11,7 @@ const style = StyleSheet.create({
 export default Filmes = () => {
     return(
         <View>
-          <Navbar name = "Jogos"/>
+          <Navbar name = "Filmes"/>
         </View>
     )
 }
