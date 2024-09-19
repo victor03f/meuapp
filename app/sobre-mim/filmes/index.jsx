@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, FlatList, Pressable, ScrollView,SafeAreaView } from "react-native"
 import {Link} from "expo-router"
 import Navbar from "../../../components/Navbar";
-import GamesAboutMe from "../../../components/Games-movies-AboutMe";
+import Games from "../../../components/Games-movies-AboutMe";
 
 
 const style = StyleSheet.create({
+   movie:{
     
+   },
     }
 )
 
@@ -20,22 +22,27 @@ export default Jogos = () => {
           <Navbar name = "Filmes"
           voltar = "/sobre-mim"
           />
-         <ScrollView>
+         <ScrollView >
 
-          <GamesAboutMe img ={require('../../image/anonimo.jpeg')}
+          <Games  img ={"https://i0.wp.com/portalnerdistico.com.br/wp-content/uploads/2024/01/anonimo-filme-1.jpg"}
           text = {"Anônimo"}
           year = {"Lançamento: 2022"}
           id = {1}
-          />
-          <GamesAboutMe img ={require('../../image/spider-man.jpg')}
-          text = {"Homem-aranha 2 (2004) "}
-          year = {"Lançamento:2004"}
-          id = {2}
+          style = {style.movie}
           
           />
-          <GamesAboutMe img ={require('../../image/clube-da-luta.jpg')}
+          <Games  img ={"https://img33.tokyvideo.com/videos/355/355893/previews/previews_0012_custom_1696996476.0872.jpg"}
+          text = {"Homem-aranha 2 (2004)"}
+          year = {"Lançamento:2004"}
+          id = {2}
+          style = {style.movie}
+          
+          />
+          <Games  img ={"https://uploads.jovemnerd.com.br/wp-content/uploads/2022/01/clube-da-luta-autor-ironiza-final-chines.jpg"}
           text = {"Clube da luta"}
           year = {"Lançamento:1999"}
+          id = {3}
+          style = {style.movie}
           />
            
            

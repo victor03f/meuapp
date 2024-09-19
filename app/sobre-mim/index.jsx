@@ -28,8 +28,6 @@ export default Sobremim = () => {
         <SafeAreaView>
             <Navbar name="Meu App" />
             <View>
-
-
                 <Image
                     style={style.picture}
                     source={require('../image/minhafoto.jpeg')}

@@ -1,32 +1,38 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, FlatList, Pressable, Image, ScrollView } from "react-native"
+import { View, Text, StyleSheet, Image, ScrollView } from "react-native"
 import { Link } from "expo-router"
 
 const style = StyleSheet.create({
-    img: {
-        display: 'flex',
-        alignSelf: 'center',
-        marginTop: 20,
-        width:'65%',
-        height:130,
+    img:{
+        width: 300,
+        height: 120,
     },
-    footerImg:{
-     fontSize: 15,
-     padding: 5,
-     marginTop: 7
+    ViewGames:{
+        display: 'flex',
+        alignItems: 'center',
+        width: 'auto',
+        height: 'auto',
     }
-})
+},
+)
 
 export default Games = (props) => {
+
     return (
         <ScrollView>
-
-        
         <View style={style.ViewGames}>
+            <Link 
+            href={{
+                pathname:`sobre-mim/descricao/${props.id}`,
+                params:{'jogo': JSON.stringify({'jogo':props})},
+            }}
+            style={style.img}
+            >
             <Image
                 style={style.img}
-                source={props.img}
+                source={{uri: props.img}}
             />
+            </Link>
             <Text style = {style.footerImg}>{props.text}</Text>
             <Text style = {style.footerImg}>{props.year}</Text>
         </View>
