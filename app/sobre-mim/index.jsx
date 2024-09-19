@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, FlatList, Pressable, Image } from "react-native"
+import { View, Text, StyleSheet, FlatList, Pressable, Image,SafeAreaView } from "react-native"
 import { Link } from "expo-router"
 import Navbar from "../../components/Navbar";
 import ButtonAboutMe from "../../components/ButtonAboutMe";
@@ -25,7 +25,7 @@ const style = StyleSheet.create({
 
 export default Sobremim = () => {
     return (
-        <View>
+        <SafeAreaView>
             <Navbar name="Meu App" />
             <View>
 
@@ -41,6 +41,6 @@ export default Sobremim = () => {
                 <ButtonAboutMe button = "Veja meus filmes preferidos" link = './filmes' />
                 
             </View>
-        </View>
+        </SafeAreaView>
     )
 }

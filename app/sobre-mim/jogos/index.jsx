@@ -15,7 +15,10 @@ export default Jogos = () => {
 
     return(
         <SafeAreaView>
-          <Navbar name = "Jogos"/>
+    
+          <Navbar name = "Jogos"
+          voltar = "/sobre-mim"
+          />
          <ScrollView>
 
           <GamesAboutMe img ={require('../../image/elden-ring.jpeg')}
@@ -38,5 +41,6 @@ export default Jogos = () => {
           />
           </ScrollView>
           </SafeAreaView>
+          
     )
 }
