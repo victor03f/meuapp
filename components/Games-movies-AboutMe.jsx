@@ -4,14 +4,21 @@ import { Link } from "expo-router"
 
 const style = StyleSheet.create({
     img:{
-        width: 300,
-        height: 120,
+        height: 150,
+        width: 300
+        
+       
+    },
+    Viewimg:{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     ViewGames:{
         display: 'flex',
         alignItems: 'center',
-        width: 'auto',
-        height: 'auto',
+        justifyContent: 'center',
+       
     }
 },
 )
@@ -26,12 +33,14 @@ export default Games = (props) => {
                 pathname:`sobre-mim/descricao/${props.id}`,
                 params:{'jogo': JSON.stringify({'jogo':props})},
             }}
-            style={style.img}
+            
             >
+                <View style={style.Viewimg}>
             <Image
                 style={style.img}
                 source={{uri: props.img}}
             />
+            </View>
             </Link>
             <Text style = {style.footerImg}>{props.text}</Text>
             <Text style = {style.footerImg}>{props.year}</Text>

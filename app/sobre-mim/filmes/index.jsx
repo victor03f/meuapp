@@ -3,11 +3,16 @@ import { View, Text, StyleSheet, FlatList, Pressable, ScrollView,SafeAreaView } 
 import {Link} from "expo-router"
 import Navbar from "../../../components/Navbar";
 import Games from "../../../components/Games-movies-AboutMe";
+import { SafeAreaProvider, SafeAreaInsetsContext } from "react-native-safe-area-context";
 
 
 const style = StyleSheet.create({
    movie:{
-    
+    height: 240,
+    width: 200,
+    display: 'flex',
+    alignItems: 'center'
+   
    },
     }
 )
@@ -16,6 +21,7 @@ export default Jogos = () => {
 //const lista = [{}, {}]
 
     return(
+        <SafeAreaProvider>
         <View>
 
         
@@ -49,6 +55,7 @@ export default Jogos = () => {
 
           </ScrollView>
           </View>
+          </SafeAreaProvider>
           
     )
 }

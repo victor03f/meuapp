@@ -7,7 +7,10 @@ import GamesAboutMe from "../../../components/Games-movies-AboutMe";
 
 const style = StyleSheet.create({
     movie:{
-        
+        height: 640,
+        width: 400,
+        display: 'flex',
+        alignItems: 'center'
     }
     
 }
@@ -18,12 +21,10 @@ export default Jogos = () => {
 
     return (
         <SafeAreaView>
-
             <Navbar name="Jogos"
                 voltar="/sobre-mim"
             />
             <ScrollView>
-
                 <GamesAboutMe img={
                     "https://assets.xboxservices.com/assets/1d/5b/1d5bc84f-2135-4e2f-8ca6-bb000d97db7f.jpg?n=Elden-Ring_GLP-Poster-Image-1084_1920x1080.jpg"}
                     text={"Elden Ring"}
