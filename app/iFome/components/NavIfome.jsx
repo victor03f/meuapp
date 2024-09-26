@@ -8,21 +8,22 @@ navView:{
     display:'flex',
     flexDirection: 'row',
     justifyContent:'space-between',
-    backgroundColor: "#EA1D2C",
-    padding: 8
+    backgroundColor: "#DB000A",
+    padding: 7
+    
 },
 TextNav:{
     color: 'white',
     fontSize: 19,
     justifyContent: 'space-around',
+    fontStyle: 'arial'
 
 },
 })
-export default Navcomponet = (voltarPara) =>{
+export default Navifome = () =>{
 
     return(
         <View style = {style.navView}>
-            {voltarPara??<Link href='./buyScreen'><Text>Carrinho</Text></Link>}
            <Text style = {style.TextNav}>iFome</Text>
         </View>
     )

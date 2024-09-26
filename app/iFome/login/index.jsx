@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, FlatList, Pressable, ScrollView,SafeAreaView } from "react-native"
 import {Link} from "expo-router"
-import NavIfome from "../components/Nav-Ifome";
+import NavIfome from "../../iFome/components/NavIfome";
 
 
 const style = StyleSheet.create({
