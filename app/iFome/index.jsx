@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, SafeAreaView, Text, TextInput, Pressable, StyleSheet } from "react-native";
-import NavIfome from "./iFome/components/NavIfome";
+import NavIfome from "./components/NavIfome";
 import { Link } from "expo-router";
 
 
@@ -72,12 +72,19 @@ export default Ifome = () => {
 
                     <View style={style.pressable}>
 
-                          <Link href={'/app/iFome/buyScreen'}>
                          
+                        
                         <Pressable style={style.button} onPress={enviarRegistro}>
-                            <Text style={style.textButton}>Enviar</Text>
+                            <Text style={style.textButton}>Enviar registo</Text>
                         </Pressable>
-                        </Link>
+                        
+                        <Pressable style={style.button}>
+
+                        <Link href={'../iFome/buyScreen'}>
+                            <Text style={style.textButton}> Continuar</Text>
+                            </Link>
+                        </Pressable>
+                        
                     </View>
                 </View>
             </View>
@@ -109,12 +116,17 @@ const style = StyleSheet.create({
         marginBottom: 25,
         fontSize: 17
     },
-    textButton:{
+
+    
+    button:{
         marginTop: 25,
         borderColor: "gray",
         width: "100%",
         borderWidth: 1,
         borderRadius: 10,
         padding: 10,
+        alignItems: 'center',
+        display: 'flex',
+        justifyContent: 'center'
     }
 })
