@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, SafeAreaView, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import NavIfome from "./components/NavIfome";
 import { Link } from "expo-router";
-
+import { AppContext } from "../../scripts/AppContext";
 
 
 export default Ifome = () => {
-
-    const [name, onChangeName] = React.useState('');
+    const {name, onChangeName} = useContext(AppContext)
+    //const [name, onChangeName] = React.useState('');
     const [password, onChangePassword] = React.useState('');
     const [email, onChangeEmail] = React.useState('');
 
 
     const enviarRegistro = async () => {
+        console.log(name, password, email)
         if (!name || !password || !email) {
             alert("Prencha todos os campos corretamente")
         }
@@ -28,18 +29,21 @@ export default Ifome = () => {
                 'email': email,
             })
         })
-        if (resposta.status == 200) {
+        console.log(resposta)
+        if (resposta.status === 200) {
             alert("user criado com sucesso")
+            
         }
-        else (resposta.status == 409)
-        alert("Email já cadastrado")
+        else if (resposta.status == 409){
+            alert("Email já cadastrado")
+        }
     }
 
 
     return (
         <SafeAreaView style={style.safeview}>
             <View style={style.view}>
-                <NavIfome/>
+                <NavIfome />
                 <View style={style.ViewLogin}>
 
                     <Text style={style.text}>Registre-se</Text>
@@ -72,19 +76,19 @@ export default Ifome = () => {
 
                     <View style={style.pressable}>
 
-                         
-                        
+
+
                         <Pressable style={style.button} onPress={enviarRegistro}>
                             <Text style={style.textButton}>Enviar registo</Text>
                         </Pressable>
-                        
-                        <Pressable style={style.button}>
 
-                        <Link href={'../iFome/buyScreen'}>
-                            <Text style={style.textButton}> Continuar</Text>
+                        <Pressable style={style.button}>
+                            <Link href={'../iFome/buyScreen'}>
+                                <Text style={style.textButton}> Continuar</Text>
                             </Link>
+
                         </Pressable>
-                        
+
                     </View>
                 </View>
             </View>
@@ -117,8 +121,8 @@ const style = StyleSheet.create({
         fontSize: 17
     },
 
-    
-    button:{
+
+    button: {
         marginTop: 25,
         borderColor: "gray",
         width: "100%",
