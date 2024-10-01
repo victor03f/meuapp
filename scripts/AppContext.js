@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const AppContext = createContext()
 export const AppProvider = ({children}) =>{
-    const [carrinho, SetCarrinho] = useState('')
+    const [carrinho, SetCarrinho] = useState([])
     const [detail, setDetail] = useState ({})
     const [name, onChangeName] = useState("")
 

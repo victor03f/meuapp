@@ -1,19 +1,19 @@
 import React, { useState, useContext } from "react";
 import { View, SafeAreaView, Text, TextInput, Pressable, StyleSheet } from "react-native";
 import NavIfome from "./components/NavIfome";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { AppContext } from "../../scripts/AppContext";
+
 
 
 export default Ifome = () => {
     const {name, onChangeName} = useContext(AppContext)
-    //const [name, onChangeName] = React.useState('');
     const [password, onChangePassword] = React.useState('');
     const [email, onChangeEmail] = React.useState('');
 
 
     const enviarRegistro = async () => {
-        console.log(name, password, email)
+        
         if (!name || !password || !email) {
             alert("Prencha todos os campos corretamente")
         }
@@ -32,10 +32,13 @@ export default Ifome = () => {
         console.log(resposta)
         if (resposta.status === 200) {
             alert("user criado com sucesso")
+            router.replace('/iFome/buyScreen')
+            console.log(resposta)
             
         }
         else if (resposta.status == 409){
             alert("Email já cadastrado")
+            
         }
     }
 
@@ -82,12 +85,14 @@ export default Ifome = () => {
                             <Text style={style.textButton}>Enviar registo</Text>
                         </Pressable>
 
-                        <Pressable style={style.button}>
-                            <Link href={'../iFome/buyScreen'}>
-                                <Text style={style.textButton}> Continuar</Text>
-                            </Link>
 
-                        </Pressable>
+                                  <Link href={'/iFome/buyScreen'}>
+                       
+                            <Text style={style.textButton}>Compra</Text>
+                       
+                        </Link>
+
+                    
 
                     </View>
                 </View>
@@ -124,6 +129,7 @@ const style = StyleSheet.create({
 
     button: {
         marginTop: 25,
+        marginBottom: 20,
         borderColor: "gray",
         width: "100%",
         borderWidth: 1,
