@@ -132,10 +132,7 @@ export default buyscreen = () => {
                             <Image style={style.tinyLogo} source={{ uri: 'https://cdn-icons-png.flaticon.com/512/6915/6915412.png' }} />
                         </Link>
                     </View>
-
-
                     <Text style={style.textUser}>Bem vindo(a):{name}</Text>
-                    {/* DATA.map(() */}
                     {DATA.map((item) => {
                         return (
                             <Item name={item.name} id={item.id} local={item.local} price={item.price} img={item.img} />
