@@ -37,6 +37,9 @@ const Index = () => {
             <Link href="./camera" style={styles.links}>
                 <Text style={styles.linkText}>Camera</Text>
             </Link>
+            <Link href="./memorias" style={styles.links}>
+                <Text style={styles.linkText}>Memorias</Text>
+            </Link>
         </SafeAreaView>
     )
 }

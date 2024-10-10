@@ -82,6 +82,7 @@ return (
               <Pressable title="Salvar Foto" onPress={salvaFoto}>
                 <Image style={style.icon} source={require('../image/salvar.png')} />
               </Pressable>
+              
               <Pressable onPress={tirarFoto}>
                 <Image style={style.icon} source={require('../image/deletar.png')} />
               </Pressable>
