@@ -1,69 +1,80 @@
 import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Image, Button, SafeAreaView, TouchableOpacity, ImageBackground, Pressable, FlatList} from "react-native";
+import { View, Text,StyleSheet, FlatList } from "react-native";
 import NavMemorias from "./componentes/navMemorias";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Link } from "expo-router";
 
-const getStoredMemories = async () => {
-    try {
-      const value = await AsyncStorage.getItem('lista_memorias');
-      if (value !== null) {
-        // value previously stored
-      }
-    } catch (e) {
-      // error reading value
-    }
-  }; 
-export default memorias = () => {
+
+const Memorias = () => {
+    const getStoredMemories = async () => {
+        try {
+            const value = await AsyncStorage.getItem('lista_memorias');
+            if (value !== null) {
+                return(value)
+            }
+        } catch (e) {
+        
+        }
+    };
 
     const [memorias, SetMemorias] = useState(null);
 
 
     useEffect(() => {
-let resultado = getStoredMemories()
-if(resultado){
-   SetMemorias(JSON.stringify(resultado))
-}
-    }, []);
-   
+        getStoredMemories().then((data) => {
+            console.log(data, typeof data)
+            if (data) {
+                
+                SetMemorias([JSON.parse(data)])
+            }
+        })
+    }, [])
 
     return (
-        <View style='container'>
-            <NavMemorias name="Memorias" />
-            <Link href={'../memorias/add-memorias/index'}>
-            <Text>
-
-            </Text>
-            </Link>
+        <View style={style.container}>
+            <NavMemorias name="Memórias" />
             <FlatList
                 data={memorias}
+                keyExtractor={(item, index) => index.toString()} 
                 renderItem={({ item }) => (
-                    <View>
-                        <Image source={{ uri: item.Image }} style={style.Image} />
-                        <Text>{item.title}</Text>
-                        <Text>{item.desc}</Text>
+                    <View style={style.memoryItem}>
+                        <Text style={style.memoryTitle}>{item.title}</Text>
+                        <Text style={style.memoryDescription}>{item.desc}</Text>
                         <Text>{item.where} - {item.year}</Text>
-                        <Link href={"./add-memorias"}>
-                            <Text style = {style.textAdd}>
-                                Adicionar memorias
-                            </Text>
-                        </Link>
                     </View>
                 )}
             />
+            <Link href="./add-memorias">
+                <Text style={style.textAdd}>Adicionar memórias</Text>
+            </Link>
         </View>
-    )
-
-
-
-
-}
-
+    );
+};
 const style = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: '#f5f5f5',
+    },
+    memoryItem: {
+    
+    },
+    memoryTitle: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        color: '#333', 
+    },
+    memoryDescription: {
+        fontSize: 16,
+        color: '#666', 
+    },
+    textAdd: {
+        fontSize: 30,
+        color: '#007BFF', 
+        textAlign: 'center',
+        marginTop: 20,
+        marginBottom: 10,
+    },
+});
 
-    textAdd:{
-        fontSize: 10
-    }
-
-
-})
+export default Memorias;
